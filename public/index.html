@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp APIs Widgets</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
+    
+</head>
+
+<body>
+    <h1>BOOTCAMP APIs WIDGETS</h1>
+    <div class="widget" x-data="wordGame()">
+        <h2>WordGame Widget</h2>
+        <input type="text" x-model="sentence" placeholder="Enter sentence">
+        <button @click="fetchStats">Process</button>
+        <div x-show="stats">
+            <p>Sentence: <span x-text="sentence"></span></p>
+            <p>Longest Word is: <span x-text="stats.longestWord"></span></p>
+            <p>Shortest Word is: <span x-text="stats.shortestWord"></span></p>
+            <p>Sum of words is : <span x-text="stats.sum"></span></p>
+        </div>
+    </div>
+
+    <div class="widget" x-data="phoneBill()">
+        <h2>Phone Bill Widget</h2>
+        <input type="text" x-model="usage" placeholder="Enter usage (call,sms)">
+        <button @click="calculateTotal">Calculate Total</button>
+        <p>Total: <span x-text="total"></span></p>
+
+        <h2>Change Prices</h2>
+        <input type="number" x-model="newCallPrice" placeholder="New call price" step="0.01">
+        <input type="number" x-model="newSmsPrice" placeholder="New SMS price" step="0.01">
+        <button @click="updatePrices">Update Prices</button>
+        <p x-text="updateMessage"></p>
+    </div>
+
+    <div class="widget" x-data="enoughAirtime()">
+        <h2>Enough Airtime Widget</h2>
+        <input type="text" x-model="usage" placeholder="Enter usage (call,sms)">
+        <input type="number" x-model="available" placeholder="Available airtime" step="0.01">
+        <button @click="checkAirtime">Check</button>
+        <p>Remaining Airtime: <span x-text="result"></span></p>
+    </div>
+    <link rel="stylesheet" href="styles.css">
+    <script src="wordgame.js"></script>
+    <script src="totalPhoneBill.js"></script>
+    <script src="enoughAirtime.js"></script>
+</body>
+
+</html>
